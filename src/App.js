@@ -31,13 +31,14 @@ class App extends Component {
     }
   }
 
-  formSubmitHandler = ({ name, number }) => {
+  OnAddContact = ({ name, number }) => {
     const contact = {
       id: shortid.generate(),
       name,
       number,
     };
-    this.state.contacts.some(i => i.name === contact.name)
+
+    this.state.contacts.some(item => item.name === contact.name)
       ? alert(`${name} is already in contacts`)
       : this.setState(({ contacts }) => ({
           contacts: [contact, ...contacts],
@@ -65,7 +66,7 @@ class App extends Component {
     return (
       <Container>
         <h1 className={styles.Title}>Phonebook</h1>
-        <ContactForm onSubmit={this.formSubmitHandler} />
+        <ContactForm onSubmit={this.OnAddContact} />
         <h2 className={styles.TitleContacts}>Contacts</h2>
         <Filter value={filter} changeFilterInput={this.changeFilterInput} />
         <ContactList
