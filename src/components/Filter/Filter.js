@@ -26,7 +26,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
-
-// const mapDispatchToProps = (dispatch) => ({
-//   onFilter: (e) => dispatch(actions.Filter(e.target.value)),
-// })
